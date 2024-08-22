@@ -414,6 +414,7 @@ header nav ul li a.active {
   align-items: center;
   position: relative;
   margin-top: 2em;
+  padding-bottom: 4em;
 }
 .testimonials .testimonials-container .slider .slider-track {
   display: flex;
@@ -427,6 +428,7 @@ header nav ul li a.active {
   padding: 1.2em;
   font-size: 0.85em;
   text-align: left;
+  transition: 0.2s ease;
 }
 .testimonials .testimonials-container .slider .slider-track .card .comma {
   width: 1.8em;
@@ -437,16 +439,37 @@ header nav ul li a.active {
   margin-top: 1.2em;
   margin-bottom: 0.2em;
 }
+.testimonials .testimonials-container .slider .slider-track .card.active {
+  position: relative;
+  top: 3em;
+}
+.testimonials .testimonials-container .dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonials .testimonials-container .dots div {
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background-color: #0e1b2c;
+  opacity: 0.25;
+  margin: 0.3em;
+}
+.testimonials .testimonials-container .dots div.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
 .testimonials .testimonials-container .arrow-left,
 .testimonials .testimonials-container .arrow-right {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 1.5em);
   transform: translateY(-50%);
   background-color: white;
   cursor: pointer;
   z-index: 1;
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   border-radius: 100%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -458,16 +481,16 @@ header nav ul li a.active {
   width: 0.8em;
 }
 .testimonials .testimonials-container .arrow-left {
-  left: -0.5em;
+  left: -0.1em;
 }
 .testimonials .testimonials-container .arrow-left img {
   transform: rotate(90deg);
 }
 .testimonials .testimonials-container .arrow-right {
-  right: -0.5em;
+  right: -0.1em;
 }
 .testimonials .testimonials-container .arrow-right img {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 .news-section {
@@ -714,7 +737,7 @@ header nav ul li a.active {
   }
 
   .testimonials .testimonials-container .card {
-    min-width: calc(37% - 2.5em) !important;
+    min-width: calc(36% - 2.5em) !important;
     font-size: 1em !important;
   }
 

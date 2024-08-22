@@ -441,6 +441,7 @@ header {
       align-items: center;
       position: relative;
       margin-top: 2em;
+      padding-bottom: 4em;
       .slider-track {
         display: flex;
         transition: transform 0.5s ease;
@@ -452,6 +453,7 @@ header {
           padding: 1.2em;
           font-size: 0.85em;
           text-align: left;
+          transition: 0.2s ease;
           .comma {
             width: 1.8em;
             margin-bottom: 0.5em;
@@ -463,19 +465,40 @@ header {
               margin-bottom: 0.2em;
             }
           }
+          &.active {
+            position: relative;
+            top: 3em;
+          }
+        }
+      }
+    }
+    .dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      div {
+        width: 9px;
+        height: 9px;
+        border-radius: 100%;
+        background-color: #0e1b2c;
+        opacity: 0.25;
+        margin: 0.3em;
+        &.active {
+          opacity: 1;
+          transform: scale(1.1);
         }
       }
     }
     .arrow-left,
     .arrow-right {
       position: absolute;
-      top: 50%;
+      top: calc(50% - 1.5em);
       transform: translateY(-50%);
       background-color: white;
       cursor: pointer;
       z-index: 1;
-      width: 2.5em;
-      height: 2.5em;
+      width: 2em;
+      height: 2em;
       border-radius: 100%;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
       display: flex;
@@ -487,16 +510,16 @@ header {
     }
 
     .arrow-left {
-      left: -0.5em;
+      left: -0.1em;
       img {
         transform: rotate(90deg);
       }
     }
 
     .arrow-right {
-      right: -0.5em;
+      right: -0.1em;
       img {
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
       }
     }
   }
@@ -748,7 +771,7 @@ header {
   .testimonials {
     .testimonials-container {
       .card {
-        min-width: calc(37% - 2.5em) !important;
+        min-width: calc(36% - 2.5em) !important;
         font-size: 1em !important;
       }
     }

@@ -48,15 +48,35 @@ function testimonialSlider() {
   const cards = sliderTrack.querySelectorAll(".card");
   const prevButton = testimonialContainer.querySelector(".arrow-left");
   const nextButton = testimonialContainer.querySelector(".arrow-right");
+  const dots = testimonialContainer.querySelectorAll(".dots div");
 
   let currentIndex = 0;
   const visibleCards = 3;
+
+  function updateActiveCard() {
+    cards.forEach((card) => card.classList.remove("active"));
+
+    const centerIndex = currentIndex + Math.floor(visibleCards / 2);
+
+    if (cards[centerIndex]) {
+      cards[centerIndex].classList.add("active");
+    }
+  }
+
+  function updateActiveDot() {
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+    dots[currentIndex].classList.add("active");
+  }
 
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth + 20;
     const totalWidth = cardWidth * currentIndex;
 
     sliderTrack.style.transform = `translateX(-${totalWidth}px)`;
+    updateActiveCard();
+    updateActiveDot();
   }
 
   prevButton.addEventListener("click", () => {
@@ -68,6 +88,8 @@ function testimonialSlider() {
     currentIndex = Math.min(currentIndex + 1, cards.length - visibleCards);
     updateSlider();
   });
+  updateActiveCard();
+  updateActiveDot();
 }
 
 testimonialSlider();
